@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+  <channel>
+
+    <title>Fexkode Blog</title>
+
+    <link>https://fexkode.com/blog</link>
+
+    <description>
+      Cloud, DevOps, infrastructure, security, automation and engineering insights from Fexkode.
+    </description>
+
+    <language>en</language>
+
+    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>What Is Cloud Migration? A Complete Guide</title>
+      <link>https://fexkode.com/blog/what-is-cloud-migration</link>
+
+      <guid isPermaLink="true">
+        https://fexkode.com/blog/what-is-cloud-migration
+      </guid>
+
+      <description>
+        Learn what cloud migration is, why businesses migrate to the cloud, common migration strategies, the migration process and key challenges.
+      </description>
+
+      <category>Cloud</category>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Cloud Migration Strategies</title>
+      <link>https://fexkode.com/blog/cloud-migration-strategies</link>
+
+      <guid isPermaLink="true">
+        https://fexkode.com/blog/cloud-migration-strategies
+      </guid>
+
+      <description>
+        Explore common cloud migration strategies and understand how to choose the right approach for your business.
+      </description>
+
+      <category>Cloud</category>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>What Is DevOps?</title>
+      <link>https://fexkode.com/blog/what-is-devops</link>
+
+      <guid isPermaLink="true">
+        https://fexkode.com/blog/what-is-devops
+      </guid>
+
+      <description>
+        Understand DevOps, its principles, practices, automation, CI/CD and how it improves modern software delivery.
+      </description>
+
+      <category>DevOps</category>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>What Is Kubernetes?</title>
+      <link>https://fexkode.com/blog/what-is-kubernetes</link>
+
+      <guid isPermaLink="true">
+        https://fexkode.com/blog/what-is-kubernetes
+      </guid>
+
+      <description>
+        Learn the fundamentals of Kubernetes, containers, orchestration and how Kubernetes supports modern cloud infrastructure.
+      </description>
+
+      <category>DevOps</category>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Cloud Security Best Practices</title>
+      <link>https://fexkode.com/blog/cloud-security-best-practices</link>
+
+      <guid isPermaLink="true">
+        https://fexkode.com/blog/cloud-security-best-practices
+      </guid>
+
+      <description>
+        Learn practical cloud security practices covering identity, infrastructure security, backups and protecting cloud environments.
+      </description>
+
+      <category>Security</category>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>

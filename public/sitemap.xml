@@ -1,0 +1,61 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://fexkode.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/about</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/cloud-services</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/industries</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/case-studies</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/blog</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/contact</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions/cloud-migration</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions/devops-automation</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions/managed-cloud</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions/cloud-security</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions/kubernetes-containers</loc>
+  </url>
+
+  <url>
+    <loc>https://fexkode.com/solutions/data-cloud-platform</loc>
+  </url>
+
+</urlset>
