@@ -43,9 +43,11 @@ function TopographicBackground() {
      * preserving the same overall topographic appearance.
      */
 
-    const SURFACE_1_LINES = 60;
-    const SURFACE_2_LINES = 45;
-    const SURFACE_3_LINES = 40;
+const isMobile = window.innerWidth < 768;
+
+const SURFACE_1_LINES = isMobile ? 35 : 60;
+const SURFACE_2_LINES = isMobile ? 25 : 45;
+const SURFACE_3_LINES = isMobile ? 22 : 40;
 
     const SURFACE_STEP = 11;
     const RIDGE_STEP = 9;
@@ -57,7 +59,7 @@ function TopographicBackground() {
      * expensive. A maximum of 1.5 keeps the visual quality
      * sharp while reducing GPU/CPU workload.
      */
-    const MAX_DPR = 1.5;
+    const MAX_DPR = 2
 
     /*
      * ---------------------------------------------------------
@@ -65,20 +67,22 @@ function TopographicBackground() {
      * ---------------------------------------------------------
      */
 
-    const resize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
+const resize = () => {
+  const rect = canvas.parentElement.getBoundingClientRect();
 
-      dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+  width = rect.width;
+  height = rect.height;
 
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
+  dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
 
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
+  canvas.width = Math.floor(width * dpr);
+  canvas.height = Math.floor(height * dpr);
 
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+};
 
     /*
      * ---------------------------------------------------------
