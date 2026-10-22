@@ -18,10 +18,7 @@ function TopographicBackground() {
 
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d", {
-      alpha: false,
-      desynchronized: true,
-    });
+   const ctx = canvas.getContext("2d", { alpha: false });
 
     if (!ctx) return;
 
@@ -530,13 +527,21 @@ const resize = () => {
      * ---------------------------------------------------------
      */
 
-    resize();
+ let lastWidth = 0;
+let resizeTimer;
 
-    window.addEventListener(
-      "resize",
-      resize,
-      { passive: true }
-    );
+const handleResize = () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (window.innerWidth === lastWidth) return; // ignore address-bar height changes
+    lastWidth = window.innerWidth;
+    resize();
+  }, 150);
+};
+
+resize();
+lastWidth = window.innerWidth;
+window.addEventListener("resize", handleResize, { passive: true });
 
     canvas.addEventListener(
       "mousemove",
@@ -566,10 +571,8 @@ const resize = () => {
 
       observer.disconnect();
 
-      window.removeEventListener(
-        "resize",
-        resize
-      );
+     window.removeEventListener("resize", handleResize);
+clearTimeout(resizeTimer);
 
       canvas.removeEventListener(
         "mousemove",
