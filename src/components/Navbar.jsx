@@ -18,6 +18,9 @@ import {
   BookOpen,
   Mail,
   Layers,
+    Globe,           
+  Smartphone,      
+  GraduationCap, 
 } from "lucide-react";
 
 import logo from "../assets/images/Fexkode-symbol.png";
@@ -35,6 +38,40 @@ function FexkodeWordmark({ className = "" }) {
     strokeLinejoin: "round",
     fill: "none",
   };
+
+ const serviceLinks = [
+    {
+      name: "Cloud Services",
+      path: "/cloud-services",
+      icon: Cloud,
+      desc: "AWS, Azure and Google Cloud engineering.",
+    },
+    {
+      name: "Web Development",
+      path: "/web-development",
+      icon: Globe,
+      desc: "Fast, modern websites and web applications.",
+    },
+    {
+      name: "Mobile App Development",
+      path: "/mobile-app-development",
+      icon: Smartphone,
+      desc: "Android and iOS apps built to scale.",
+    },
+    {
+      name: "Coding & Cloud Training",
+      path: "/training",
+      icon: GraduationCap,
+      desc: "Hands-on courses in programming and cloud.",
+    },
+    {
+      name: "Industries",
+      path: "/industries",
+      icon: Building2,
+      desc: "Solutions for modern businesses.",
+    },
+  ];
+
 
   return (
     <svg
@@ -333,35 +370,33 @@ function Navbar() {
                         Our Solutions
                       </p>
 
-                      <div className="grid grid-cols-2 gap-1">
+                    <div className="grid grid-cols-2 gap-1">
+  {solutionLinks.map((sol) => (
+    <Link
+      key={sol.path}
+      to={sol.path}
+      onClick={closeAll}
+      className={linkItem}
+    >
+      <div className={iconBox}>
+        <sol.icon
+          size={15}
+          className="text-slate-400 transition-colors group-hover:text-cyan"
+        />
+      </div>
 
-                        {solutionLinks.map((sol) => (
-                          <Link
-                            key={sol.path}
-                            to={sol.path}
-                            onClick={closeAll}
-                            className={linkItem}
-                          >
-                            <div className={iconBox}>
-                              <sol.icon
-                                size={15}
-                                className="text-slate-400 transition-colors group-hover:text-cyan"
-                              />
-                            </div>
+      <div>
+        <p className="text-sm font-semibold text-white">
+          {sol.name}
+        </p>
 
-                            <div>
-                              <p className="text-sm font-semibold text-white">
-                                {sol.name}
-                              </p>
-
-                              <p className="mt-1 text-xs leading-5 text-slate-400">
-                                {sol.desc}
-                              </p>
-                            </div>
-                          </Link>
-                        ))}
-
-                      </div>
+        <p className="mt-1 text-xs leading-5 text-slate-400">
+          {sol.desc}
+        </p>
+      </div>
+    </Link>
+  ))}
+</div>
                     </div>
 
                     <Link

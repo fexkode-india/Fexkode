@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
 import ScrollReveal from "../../components/ScrollReveal";
+import cloudMigrationImg from "../../assets/images/page-heros/cloud-migration.png";
 
 const capabilities = [
   "Migration assessment and planning",
@@ -114,14 +115,14 @@ function CloudMigration() {
 
       <main className="min-h-screen pt-20">
         {/* Hero */}
-        <PageHero
-          eyebrow="Cloud Migration"
-          title="Move to the cloud without losing control."
-          description="Plan and execute cloud migrations with a structured approach focused on reliability, security, scalability, and business continuity."
-          image="/src/assets/images/page-heros/cloud-migration.png"
-          buttonText="Discuss Your Migration"
-          buttonLink="/contact"
-        />
+       <PageHero
+  eyebrow="Cloud Migration"
+  title="Move to the cloud without losing control."
+  description="Plan and execute cloud migrations with a structured approach focused on reliability, security, scalability, and business continuity."
+  image={cloudMigrationImg}
+  buttonText="Discuss Your Migration"
+  buttonLink="/contact"
+/>
 
         {/* Overview — Light */}
         <section className="border-t border-slate-200 bg-white py-24">

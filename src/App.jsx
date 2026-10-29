@@ -34,6 +34,9 @@ import Cookies from "./pages/Cookies";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminArticleEdit from "./pages/AdminArticleEdit";
+import WebDevelopment from "./pages/WebDevelopment";
+import MobileAppDevelopment from "./pages/MobileAppDevelopment";
+import Training from "./pages/Training";
 
 function App() {
   const location = useLocation();
@@ -143,6 +146,41 @@ function App() {
             </>
           }
         />
+{/* Web Development */}
+<Route
+  path="/web-development"
+  element={
+    <>
+      <Navbar />
+      <WebDevelopment />
+      <Footer />
+    </>
+  }
+/>
+
+{/* Mobile App Development */}
+<Route
+  path="/mobile-app-development"
+  element={
+    <>
+      <Navbar />
+      <MobileAppDevelopment />
+      <Footer />
+    </>
+  }
+/>
+
+{/* Training */}
+<Route
+  path="/training"
+  element={
+    <>
+      <Navbar />
+      <Training />
+      <Footer />
+    </>
+  }
+/>
 
         {/* About */}
         <Route
@@ -382,6 +420,7 @@ function App() {
               <Navbar />
               <NotFound />
               <Footer />
+              
             </>
           }
         />
