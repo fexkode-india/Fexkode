@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
 
+
 const capabilities = [
   "Kubernetes cluster architecture",
   "Containerized application deployment",
@@ -215,7 +216,7 @@ function KubernetesContainers() {
   eyebrow="Kubernetes & Containers"
   title="Run modern applications with confidence."
   description="Container and Kubernetes solutions designed to provide consistency, scalability, automation, and operational visibility for modern application environments."
- image="/src/assets/images/page-heros/kubernetes.jpg"
+image={kubernetesImg}
   buttonText="Discuss Your Environment"
   buttonLink="/contact"
 />
