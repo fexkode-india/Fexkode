@@ -1,5 +1,21 @@
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+
+const heroImages = import.meta.glob("/src/assets/images/page-heros/*", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const resolveImage = (image) => {
+  if (!image) return null;
+  if (typeof image === "string" && image.startsWith("/src/")) {
+    return heroImages[image] ?? image;
+  }
+  return image;
+};
+
+
 function PageHero({
   eyebrow,
   title,
@@ -21,7 +37,7 @@ function PageHero({
       {image && (
         <div className="absolute inset-0">
           <img
-            src={image}
+          src={resolveImage(image)}
             alt=""
             className="h-full w-full object-cover object-[right_center] grayscale-[10%]"
           />

@@ -632,3 +632,24 @@ html.lenis, html.lenis body {
 .tab-indicator {
   transition: all 0.3s var(--ease-out-expo);
 }
+
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-img-in {
+  animation: heroImageIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-img-in {
+    animation: none;
+  }
+}
