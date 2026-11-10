@@ -1,35 +1,8 @@
 /**
- * Google Analytics Utility Functions
- * Replace 'G-XXXXXXXXXX' with your actual Google Analytics Measurement ID
+ * Event helpers for the Google Tag Manager data layer.
+ *
+ * GA4 is intentionally configured in GTM (GTM-NJPLTMH6), not in this app.
  */
-
-export const MEASUREMENT_ID = 'G-XXXXXXXXXX';
-
-/**
- * Initialize Google Analytics
- * This is called automatically on page load via the gtag script in index.html
- */
-export const initializeAnalytics = () => {
-  if (window.gtag) {
-    console.log('Google Analytics initialized with ID:', MEASUREMENT_ID);
-  } else {
-    console.warn('Google Analytics gtag not found. Make sure to add your Measurement ID to index.html');
-  }
-};
-
-/**
- * Track a page view
- * @param {string} pagePath - The page path (e.g., '/blog', '/contact')
- * @param {string} pageTitle - The page title
- */
-export const trackPageView = (pagePath, pageTitle) => {
-  if (window.gtag) {
-    window.gtag('config', MEASUREMENT_ID, {
-      page_path: pagePath,
-      page_title: pageTitle,
-    });
-  }
-};
 
 /**
  * Track a custom event
@@ -37,8 +10,11 @@ export const trackPageView = (pagePath, pageTitle) => {
  * @param {Object} eventParams - Event parameters
  */
 export const trackEvent = (eventName, eventParams = {}) => {
-  if (window.gtag) {
-    window.gtag('event', eventName, eventParams);
+  if (typeof window !== "undefined" && Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({
+      event: eventName,
+      ...eventParams,
+    });
   }
 };
 

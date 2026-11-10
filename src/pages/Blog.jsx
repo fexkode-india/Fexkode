@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import PageHero from "../components/PageHero";
+import { blogPosts } from "../data/blog";
+import blogHeroImage from "../assets/images/page-heros/blog.jpg";
 
 const categories = [
   "Cloud",
@@ -9,6 +11,14 @@ const categories = [
   "Security",
   "Engineering",
 ];
+
+const bundledPosts = blogPosts.map((post) => ({
+  ...post,
+  _id: post._id || post.slug,
+  publishedAt: post.publishedAt || post.datePublished,
+  updatedAt: post.updatedAt || post.dateModified,
+  categories: post.categories || [post.category].filter(Boolean),
+}));
 
 function BlogCard({ post }) {
   return (
@@ -107,10 +117,11 @@ function Blog() {
           throw new Error(`HTTP error ${res.status}`);
         }
         const data = await res.json();
-        setPosts(data || []);
+        setPosts(data?.length ? data : bundledPosts);
       } catch (err) {
-        console.error("Posts fetch error:", err);
-        setError("Unable to load blog articles.");
+        console.warn("Blog API unavailable; using bundled published articles.", err);
+        setPosts(bundledPosts);
+        setError("Articles are temporarily being served from the bundled site content.");
       } finally {
         setLoading(false);
       }
@@ -157,7 +168,7 @@ function Blog() {
           eyebrow="Fexkode Insights"
           title="Cloud technology. Explained properly."
           description="Practical insights on cloud computing, infrastructure, DevOps, security, automation and modern engineering."
-          image="/src/assets/images/page-heros/blog.jpg"
+          image={blogHeroImage}
         />
 
         {/* =========================
@@ -211,9 +222,9 @@ function Blog() {
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
 
               <div className="mb-8">
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   Featured Article
-                </h1>
+                </h2>
               </div>
 
               <Link
@@ -229,6 +240,8 @@ function Blog() {
                         featuredPost.title ||
                         "Fexkode featured article"
                       }
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                     />
                   ) : (
@@ -294,9 +307,9 @@ function Blog() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
 
             <div className="mb-12">
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Articles
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Explore our latest insights
@@ -309,7 +322,7 @@ function Blog() {
                   Loading articles...
                 </p>
               </div>
-            ) : error ? (
+            ) : error && posts.length === 0 ? (
               <div className="py-20 text-center">
                 <p className="text-red-400">
                   {error}
@@ -353,9 +366,9 @@ function Blog() {
 
             <div className="max-w-3xl">
 
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Content Clusters
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                 Go deeper into modern infrastructure.
@@ -450,9 +463,9 @@ function Blog() {
 
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
 
-            <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+            <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
               Need Help?
-            </h1>
+            </h2>
 
             <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
               Planning your next infrastructure move?

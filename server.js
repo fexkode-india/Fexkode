@@ -103,6 +103,17 @@ const STATIC_SITEMAP_PAGES = [
   "/solutions/cloud-security",
   "/solutions/kubernetes-containers",
   "/solutions/data-cloud-platform",
+  "/web-development",
+  "/mobile-app-development",
+  "/training",
+  "/privacy",
+  "/terms",
+  "/cookies",
+  "/blog/what-is-cloud-migration",
+  "/blog/cloud-migration-strategies",
+  "/blog/what-is-devops",
+  "/blog/what-is-kubernetes",
+  "/blog/cloud-security-best-practices",
 ];
 
 function escapeXml(value) {
@@ -240,7 +251,7 @@ function authenticateAdmin(req, res, next) {
 
     req.admin = decoded;
     next();
-  } catch (error) {
+  } catch {
     return res.status(401).json({
       success: false,
       message: "Invalid or expired admin session.",

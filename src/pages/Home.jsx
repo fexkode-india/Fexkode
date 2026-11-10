@@ -12,14 +12,15 @@ import FinalCTA from "../Sections/Home/FinalCTA";
 
 
 
-function Home() {
+function Home({ organizationSchema, websiteSchema }) {
   return (
     <>
       <SEO
         title="Fexkode | Cloud & Technology Solutions"
         description="Fexkode helps businesses modernize infrastructure, adopt cloud technologies, and build scalable digital platforms."
         canonical="https://fexkode.com/"
-        image="/fexkode-logo.jpeg"
+        image="/Fexkode-symbol.png"
+        schema={[organizationSchema, websiteSchema]}
       />
 
      <Hero />

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import PageHero from "../components/PageHero";
 import solutionsBanner from "../assets/images/page-heros/solutions.jpg";
 import ScrollReveal from "../components/ScrollReveal";
+import SEO from "../components/SEO";
 
 const solutions = [
   {
@@ -182,6 +183,11 @@ function Solutions() {
 
   return (
     <>
+      <SEO
+        title="Cloud Solutions | Fexkode"
+        description="Explore Fexkode cloud solutions for cloud migration, DevOps automation, managed cloud operations, security, Kubernetes, and data platforms."
+        canonical="/solutions"
+      />
       {/* Solutions Banner */}
       <PageHero
         eyebrow="Solutions"

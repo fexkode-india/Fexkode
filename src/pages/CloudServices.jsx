@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SEO from "../components/SEO";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import PageHero from "../components/PageHero";
+import cloudServicesHeroImage from "../assets/images/page-heros/cloud-services.png";
 import azureLogo from "../assets/images/logos/azure.svg";
 import awsLogo from "../assets/images/logos/aws.svg";
 import googleCloudLogo from "../assets/images/logos/google-cloud.svg";
@@ -209,6 +210,8 @@ function ProviderCard({ p, index }) {
         <img
           src={p.logo}
           alt={p.logoAlt}
+          loading="lazy"
+          decoding="async"
           className={`${p.logoClass} transition-transform duration-300 group-hover:scale-105`}
         />
       </div>
@@ -355,7 +358,7 @@ function CloudServices() {
   eyebrow="Cloud Services"
   title="Cloud capabilities built for modern infrastructure."
   description="Design, migrate, optimize, and operate secure cloud environments across AWS, Microsoft Azure, and Google Cloud with a practical, engineering-first approach."
- image="/src/assets/images/page-heros/cloud-services.png"
+ image={cloudServicesHeroImage}
 />
 
         {/* -- Cloud Platforms — Light */}

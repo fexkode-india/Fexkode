@@ -221,6 +221,10 @@ function Footer() {
               <img
                 src={logo}
                 alt="Fexkode"
+                width="40"
+                height="40"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full scale-[1.65] object-contain"
               />
 
@@ -431,6 +435,10 @@ function Footer() {
               src={logo}
               alt=""
               aria-hidden="true"
+              width="230"
+              height="230"
+              loading="lazy"
+              decoding="async"
               className="h-full w-full object-contain"
             />
 

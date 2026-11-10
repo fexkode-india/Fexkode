@@ -1,6 +1,7 @@
 import SEO from "../components/SEO";
 import Button from "../components/Button";
 import PageHero from "../components/PageHero";
+import aboutHeroImage from "../assets/images/page-heros/about.png";
 import ScrollReveal from "../components/ScrollReveal";
 
 const capabilities = [
@@ -57,7 +58,7 @@ function About() {
           eyebrow="About Fexkode"
           title="Building Better Cloud Infrastructure"
           description="Fexkode is an India-based cloud technology company focused on helping businesses modernize infrastructure, adopt cloud technologies and build scalable digital platforms."
-          image="/src/assets/images/page-heros/about.png"
+          image={aboutHeroImage}
         />
 
         {/* Company Introduction — Light */}
@@ -65,9 +66,9 @@ function About() {
           <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-2 lg:px-8">
 
             <div>
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Who We Are
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Cloud technology built for modern businesses.
@@ -95,9 +96,9 @@ function About() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
 
             <div className="max-w-3xl">
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Core Capabilities
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                 What Fexkode does.
@@ -141,9 +142,9 @@ function About() {
 
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12 lg:p-16">
 
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Mission & Vision
-              </h1>
+              </h2>
 
               <div className="mt-5 grid gap-10 lg:grid-cols-2">
 
@@ -179,9 +180,9 @@ function About() {
         <section className="border-t border-white/5 bg-ink py-24 text-white">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
 
-            <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+            <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
               Let's Build
-            </h1>
+            </h2>
 
             <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               Building better cloud infrastructure.

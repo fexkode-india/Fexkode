@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
 import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
+import managedCloudHeroImage from "../../assets/images/page-heros/managed-cloud.png";
 import ScrollReveal from "../../components/ScrollReveal";
 
 const capabilities = [
@@ -48,7 +48,7 @@ function ManagedCloud() {
           eyebrow="Managed Cloud"
           title="Keep your cloud reliable, secure, and ready to scale."
           description="Managed cloud services that help teams operate infrastructure efficiently while maintaining visibility, performance, and reliability."
-          image="/src/assets/images/page-heros/managed-cloud.png"
+          image={managedCloudHeroImage}
           buttonText="Discuss Managed Cloud"
           buttonLink="/contact"
         />
@@ -58,9 +58,9 @@ function ManagedCloud() {
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:px-8">
             <div>
               <ScrollReveal>
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   Managed Infrastructure
-                </h1>
+                </h2>
               </ScrollReveal>
 
               <ScrollReveal className="delay-100">
@@ -101,9 +101,9 @@ function ManagedCloud() {
         <section className="bg-ink py-24 text-white">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <ScrollReveal>
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Capabilities
-              </h1>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal className="delay-100">
@@ -145,9 +145,9 @@ function ManagedCloud() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
               <ScrollReveal>
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   Service Model
-                </h1>
+                </h2>
               </ScrollReveal>
 
               <ScrollReveal className="delay-100">
@@ -230,9 +230,9 @@ function ManagedCloud() {
         <section className="bg-ink py-24 text-white">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
             <ScrollReveal>
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Need help operating your cloud?
-              </h1>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal className="delay-100">

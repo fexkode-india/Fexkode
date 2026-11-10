@@ -129,9 +129,9 @@ function CloudMigration() {
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:px-8">
             <div>
               <ScrollReveal>
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   Migration Strategy
-                </h1>
+                </h2>
               </ScrollReveal>
 
               <ScrollReveal className="delay-100">
@@ -165,9 +165,9 @@ function CloudMigration() {
         <section className="border-y border-white/5 bg-ink py-24 text-white">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <ScrollReveal>
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Capabilities
-              </h1>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal className="delay-100">
@@ -202,9 +202,9 @@ function CloudMigration() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
               <ScrollReveal>
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   Migration Process
-                </h1>
+                </h2>
               </ScrollReveal>
 
               <ScrollReveal className="delay-100">
@@ -279,9 +279,9 @@ function CloudMigration() {
         <section className="border-t border-white/5 bg-ink py-24 text-white">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
             <ScrollReveal>
-              <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                 Planning a cloud migration?
-              </h1>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal className="delay-100">

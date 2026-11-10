@@ -234,6 +234,8 @@ function TechnologyCompliance() {
                             <img
                               src={item.logo}
                               alt={item.name}
+                              loading="lazy"
+                              decoding="async"
                               className="h-full w-full object-contain opacity-70 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                             />
                           </span>
@@ -279,6 +281,8 @@ function TechnologyCompliance() {
                   <img
                     src={framework.logo}
                     alt={framework.name}
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-20 max-w-[120px] object-contain"
                   />
                 </div>

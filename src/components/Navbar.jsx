@@ -297,6 +297,10 @@ function Navbar() {
             <img
               src={logo}
               alt="Fexkode"
+              width="44"
+              height="44"
+              fetchPriority="high"
+              decoding="async"
               className="h-full w-full scale-[1.9] object-contain"
             />
           </div>

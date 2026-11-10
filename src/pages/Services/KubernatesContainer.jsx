@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
 import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
+import kubernetesImg from "../../assets/images/page-heros/Kubernetes.jpg";
 
 
 const capabilities = [

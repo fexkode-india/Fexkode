@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 
 import awsLogo from "../../assets/images/logos/aws.svg";
 import azureLogo from "../../assets/images/logos/azure.svg";
@@ -57,6 +55,8 @@ function Partnerships() {
                   <img
                     src={p.src}
                     alt={p.name}
+                    loading="lazy"
+                    decoding="async"
                     className={`${p.imgClass} w-auto object-contain`}
                   />
                   {p.label && (

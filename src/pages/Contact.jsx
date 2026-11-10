@@ -2,6 +2,7 @@ import { Mail, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import SEO from "../components/SEO";
+import contactHeroImage from "../assets/images/page-heros/contact.png";
 import { trackFormSubmission } from "../utils/analytics";
 import PageHero from "../components/PageHero";
 
@@ -159,7 +160,7 @@ function Contact() {
           eyebrow="Contact"
           title="Let's talk about your next technology challenge."
           description="Tell us what you're building, modernizing, or trying to improve. We'll help you identify the right path forward."
-          image="/src/assets/images/page-heros/contact.png"
+          image={contactHeroImage}
         />
 
         {/* Contact Area — Light */}
@@ -169,9 +170,9 @@ function Contact() {
             {/* Contact Information */}
             <div>
 
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Start a Conversation
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Tell us what you need.

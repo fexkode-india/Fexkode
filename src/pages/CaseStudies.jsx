@@ -1,5 +1,6 @@
 import SEO from "../components/SEO";
 import PageHero from "../components/PageHero";
+import caseStudiesHeroImage from "../assets/images/page-heros/case-studies.png";
 
 const caseStudies = [
   {
@@ -44,7 +45,7 @@ function CaseStudies() {
           eyebrow="Case Studies"
           title="Engineering solutions that create measurable value."
           description="Explore examples of how engineering, cloud infrastructure, and automation can address real technology challenges."
-          image="/src/assets/images/page-heros/case-studies.png"
+          image={caseStudiesHeroImage}
         />
 
         {/* Case Studies Grid — Light */}
@@ -52,9 +53,9 @@ function CaseStudies() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
 
             <div className="max-w-3xl mb-14">
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Case Studies
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Real projects. Real outcomes.
@@ -112,9 +113,9 @@ function CaseStudies() {
         <section className="border-t border-white/5 bg-ink py-24 text-white">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
 
-            <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+            <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
               Your Challenge
-            </h1>
+            </h2>
 
             <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               Let's solve your next infrastructure challenge.

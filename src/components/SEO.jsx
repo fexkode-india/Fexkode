@@ -7,6 +7,10 @@ function SEO({
   canonical,
   image,
   type = "website",
+  noindex = false,
+  schema,
+  publishedTime,
+  modifiedTime,
 }) {
   const siteUrl = "https://fexkode.com";
 
@@ -20,7 +24,17 @@ function SEO({
     ? image.startsWith("http")
       ? image
       : `${siteUrl}${image.startsWith("/") ? image : `/${image}`}`
-    : undefined;
+    : `${siteUrl}/Fexkode-symbol.png`;
+
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: canonicalUrl,
+  };
+
+  const schemas = [pageSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
 
   return (
     <Helmet>
@@ -33,7 +47,7 @@ function SEO({
 
       <meta
         name="robots"
-        content="index, follow"
+        content={noindex ? "noindex, follow" : "index, follow"}
       />
 
       <link
@@ -78,11 +92,19 @@ function SEO({
         content={canonicalUrl}
       />
 
-      {imageUrl && (
-        <meta
-          property="og:image"
-          content={imageUrl}
-        />
+      <meta
+        property="og:image"
+        content={imageUrl}
+      />
+
+      <meta property="og:site_name" content="Fexkode" />
+
+      {type === "article" && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+
+      {type === "article" && modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
       )}
 
       <meta
@@ -100,12 +122,9 @@ function SEO({
         content={description}
       />
 
-      {imageUrl && (
-        <meta
-          name="twitter:image"
-          content={imageUrl}
-        />
-      )}
+      <meta name="twitter:image" content={imageUrl} />
+
+      <script type="application/ld+json">{JSON.stringify(schemas)}</script>
     </Helmet>
   );
 }

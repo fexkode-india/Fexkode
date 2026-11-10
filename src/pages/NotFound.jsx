@@ -1,17 +1,14 @@
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 
 function NotFound() {
   return (
     <>
-      <Helmet>
-        <title>Page Not Found | Fexkode</title>
-        <meta
-          name="description"
-          content="The page you're looking for could not be found."
-        />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
+      <SEO
+        title="Page Not Found | Fexkode"
+        description="The page you're looking for could not be found."
+        noindex
+      />
 
       <main className="min-h-screen bg-ink text-white">
         <section className="flex min-h-screen items-center justify-center px-5 py-24">

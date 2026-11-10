@@ -1,15 +1,22 @@
 import ScrollReveal from "../components/ScrollReveal";
+import SEO from "../components/SEO";
 
 function WebDevelopment() {
   return (
+    <>
+      <SEO
+        title="Web Development | Fexkode"
+        description="Fexkode designs and builds responsive, secure, and scalable websites and web applications for growing businesses."
+        canonical="/web-development"
+      />
     <section className="relative overflow-hidden border-b border-white/5 bg-black">
       <div className="mx-auto max-w-[1500px] px-6 py-28 sm:px-8 lg:px-10">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <h2 className="flex items-center gap-3 text-2xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-3xl">
+            <p className="flex items-center gap-3 text-2xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-3xl">
               <span className="h-px w-9 bg-cyan" />
               Web Development
-            </h2>
+            </p>
           </ScrollReveal>
 
           <ScrollReveal className="delay-100">
@@ -38,6 +45,7 @@ function WebDevelopment() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

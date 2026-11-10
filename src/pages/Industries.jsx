@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import SEO from "../components/SEO";
 import PageHero from "../components/PageHero";
+import industriesHeroImage from "../assets/images/page-heros/industries.png";
 
 const industries = [
   {
@@ -614,7 +615,7 @@ function Industries() {
           eyebrow="Industries"
           title="Infrastructure built around your industry."
           description="Every industry has different operational, security, scalability, and technology requirements. Our engineering approach adapts to those needs."
-          image="/src/assets/images/page-heros/industries.png"
+          image={industriesHeroImage}
         />
 
         {/* Industries — Light */}

@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { PortableText } from "@portabletext/react";
 import { trackContentView } from "../utils/analytics";
+import SEO from "../components/SEO";
+import { getPostBySlug, getRelatedPosts } from "../data/blog";
+
+const normalizeBundledPost = (post) => ({
+  ...post,
+  _id: post._id || post.slug,
+  publishedAt: post.publishedAt || post.datePublished,
+  updatedAt: post.updatedAt || post.dateModified,
+});
 
 function BlogPost() {
   const { slug } = useParams();
@@ -20,10 +28,7 @@ function BlogPost() {
 
         const res = await fetch(`/api/posts/${encodeURIComponent(slug)}`);
         if (!res.ok) {
-          if (res.status === 404) {
-            setPost(null);
-            return;
-          }
+          if (res.status === 404) throw new Error("Article not found in API");
           throw new Error(`HTTP error ${res.status}`);
         }
 
@@ -36,8 +41,14 @@ function BlogPost() {
         setPost(data);
         setRelatedPosts(data.relatedArticles || []);
       } catch (err) {
-        console.error("Blog post fetch error:", err);
-        setError("Unable to load this article.");
+        const bundledPost = getPostBySlug(slug);
+        if (bundledPost) {
+          setPost(normalizeBundledPost(bundledPost));
+          setRelatedPosts(getRelatedPosts(bundledPost).map(normalizeBundledPost));
+        } else {
+          console.error("Blog post fetch error:", err);
+          setError("Unable to load this article.");
+        }
       } finally {
         setLoading(false);
       }
@@ -67,7 +78,9 @@ function BlogPost() {
 
   if (error) {
     return (
-      <main className="min-h-screen bg-ink text-white">
+      <>
+        <SEO title="Article Unavailable | Fexkode" description="This article is currently unavailable." noindex />
+        <main className="min-h-screen bg-ink text-white">
         <section className="flex min-h-[70vh] items-center justify-center px-5">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
@@ -88,13 +101,16 @@ function BlogPost() {
             </Link>
           </div>
         </section>
-      </main>
+        </main>
+      </>
     );
   }
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-ink text-white">
+      <>
+        <SEO title="Article Not Found | Fexkode" description="The article you're looking for could not be found." noindex />
+        <main className="min-h-screen bg-ink text-white">
         <section className="flex min-h-[70vh] items-center justify-center px-5">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
@@ -117,7 +133,8 @@ function BlogPost() {
             </Link>
           </div>
         </section>
-      </main>
+        </main>
+      </>
     );
   }
 
@@ -130,116 +147,29 @@ function BlogPost() {
 
   const canonicalUrl =
     post.canonicalUrl ||
-    `https://Fexkode.com/blog/${post.slug}`;
+    `https://fexkode.com/blog/${post.slug}`;
 
-  const imageUrl = post.featuredImage || "https://fexkode.com/favicon.svg";
+  const imageUrl = post.featuredImage || "https://fexkode.com/Fexkode-symbol.png";
 
   return (
     <>
-      {/* SEO */}
-      <Helmet>
-        <title>{pageTitle}</title>
-
-        <meta
-          name="description"
-          content={pageDescription}
-        />
-
-        <meta
-          name="robots"
-          content="index, follow"
-        />
-
-        <link
-          rel="canonical"
-          href={canonicalUrl}
-        />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content={pageTitle}
-        />
-
-        <meta
-          property="og:description"
-          content={pageDescription}
-        />
-
-        <meta
-          property="og:type"
-          content="article"
-        />
-
-        <meta
-          property="og:url"
-          content={canonicalUrl}
-        />
-
-        <meta
-          property="og:image"
-          content={imageUrl}
-        />
-
-        {post.publishedAt && (
-          <meta
-            property="article:published_time"
-            content={post.publishedAt}
-          />
-        )}
-
-        {post.updatedAt && (
-          <meta
-            property="article:modified_time"
-            content={post.updatedAt}
-          />
-        )}
-
-        {post.author && (
-          <meta
-            property="article:author"
-            content={post.author}
-          />
-        )}
-
-        {post.category && (
-          <meta
-            property="article:section"
-            content={post.category}
-          />
-        )}
-
-        {/* Twitter */}
-        <meta
-          name="twitter:card"
-          content="summary_large_image"
-        />
-
-        <meta
-          name="twitter:title"
-          content={pageTitle}
-        />
-
-        <meta
-          name="twitter:description"
-          content={pageDescription}
-        />
-
-        <meta
-          name="twitter:image"
-          content={imageUrl}
-        />
-
-        {/* Blog Post Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonical={canonicalUrl}
+        image={imageUrl}
+        type="article"
+        publishedTime={post.publishedAt}
+        modifiedTime={post.updatedAt || post.publishedAt}
+        schema={[
+          {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: post.title,
             description: pageDescription,
             image: post.featuredImage
               ? [post.featuredImage]
-              : ["https://fexkode.com/favicon.svg"],
+              : ["https://fexkode.com/Fexkode-symbol.png"],
             url: canonicalUrl,
             datePublished: post.publishedAt,
             dateModified: post.updatedAt || post.publishedAt,
@@ -253,12 +183,21 @@ function BlogPost() {
               url: "https://fexkode.com",
               logo: {
                 "@type": "ImageObject",
-                url: "https://fexkode.com/logo.svg",
+                url: "https://fexkode.com/Fexkode-symbol.png",
               },
             },
-          })}
-        </script>
-      </Helmet>
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://fexkode.com/" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://fexkode.com/blog" },
+              { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+            ],
+          },
+        ]}
+      />
 
       <main className="min-h-screen bg-ink text-white">
 
@@ -367,6 +306,8 @@ function BlogPost() {
                 <img
                   src={post.featuredImage}
                   alt={post.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-auto w-full object-cover"
                 />
               </div>
@@ -474,6 +415,8 @@ function BlogPost() {
                             <img
                               src={imageUrl}
                               alt={value.alt || ""}
+                              loading="lazy"
+                              decoding="async"
                               className="mx-auto w-[90%] max-w-[720px] rounded-2xl border border-white/10 object-contain"
                             />
 
@@ -489,6 +432,31 @@ function BlogPost() {
                   }}
                 />
               )}
+
+              {!post.body && post.content?.map((block, index) => {
+                if (block.type === "heading") {
+                  const Heading = `h${Math.min(Math.max(block.level || 2, 2), 4)}`;
+                  return (
+                    <Heading
+                      key={`${block.id || block.text}-${index}`}
+                      id={block.id}
+                      className={block.level === 3 ? "mb-4 mt-10 text-2xl font-semibold text-white" : "mb-5 mt-12 text-3xl font-semibold tracking-tight text-white"}
+                    >
+                      {block.text}
+                    </Heading>
+                  );
+                }
+
+                if (block.type === "list") {
+                  return (
+                    <ul key={`list-${index}`} className="mb-6 ml-6 list-disc space-y-2 text-slate-300">
+                      {block.items?.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  );
+                }
+
+                return <p key={`paragraph-${index}`} className="mb-6 text-base leading-8 text-slate-300">{block.text}</p>;
+              })}
 
             </article>
           </div>
@@ -546,6 +514,8 @@ function BlogPost() {
                         <img
                           src={related.featuredImage}
                           alt={related.title}
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                         />
                       </div>

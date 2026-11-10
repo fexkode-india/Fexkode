@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
 import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
+import dataCloudHeroImage from "../../assets/images/page-heros/data-cloud.png";
 
 const capabilities = [
   "Cloud data platform design",
@@ -186,7 +186,7 @@ function DataCloudPlatform() {
           eyebrow="Data & Cloud Platform"
           title="Build a cloud platform ready for your data."
           description="Design scalable cloud data platforms that bring together infrastructure, data workloads, integration, and operational requirements."
-          image="/src/assets/images/page-heros/data-cloud.png"
+          image={dataCloudHeroImage}
           buttonText="Discuss Your Data Platform"
           buttonLink="/contact"
         />

@@ -1,46 +1,45 @@
-import { Helmet } from "react-helmet-async";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminArticles from "./pages/AdminArticles";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Solutions from "./pages/Solutions";
-import CloudServices from "./pages/CloudServices";
-import Industries from "./pages/Industries";
-import CaseStudies from "./pages/CaseStudies";
-import Contact from "./pages/Contact";
-import AdminArticleNew from "./pages/AdminArticleNew";
+import { trackEvent } from "./utils/analytics";
 
-import CloudMigration from "./pages/Services/CloudMigration";
-import DevOpsAutomation from "./pages/Services/DevopsAutomation";
-import ManagedCloud from "./pages/Services/ManagedCloud";
-import CloudSecurity from "./pages/Services/CloudSecurity";
-import KubernetesContainers from "./pages/Services/KubernatesContainer";
-import DataCloudPlatform from "./pages/Services/DataCloudPlatform";
-
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import NotFound from "./pages/NotFound";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Cookies from "./pages/Cookies";
-
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminArticleEdit from "./pages/AdminArticleEdit";
-import WebDevelopment from "./pages/WebDevelopment";
-import MobileAppDevelopment from "./pages/MobileAppDevelopment";
-import Training from "./pages/Training";
+const AdminArticles = lazy(() => import("./pages/AdminArticles"));
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Solutions = lazy(() => import("./pages/Solutions"));
+const CloudServices = lazy(() => import("./pages/CloudServices"));
+const Industries = lazy(() => import("./pages/Industries"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const Contact = lazy(() => import("./pages/Contact"));
+const AdminArticleNew = lazy(() => import("./pages/AdminArticleNew"));
+const CloudMigration = lazy(() => import("./pages/Services/CloudMigration"));
+const DevOpsAutomation = lazy(() => import("./pages/Services/DevopsAutomation"));
+const ManagedCloud = lazy(() => import("./pages/Services/ManagedCloud"));
+const CloudSecurity = lazy(() => import("./pages/Services/CloudSecurity"));
+const KubernetesContainers = lazy(() => import("./pages/Services/KubernatesContainer"));
+const DataCloudPlatform = lazy(() => import("./pages/Services/DataCloudPlatform"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Cookies = lazy(() => import("./pages/Cookies"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const AdminArticleEdit = lazy(() => import("./pages/AdminArticleEdit"));
+const WebDevelopment = lazy(() => import("./pages/WebDevelopment"));
+const MobileAppDevelopment = lazy(() => import("./pages/MobileAppDevelopment"));
+const Training = lazy(() => import("./pages/Training"));
 
 function App() {
   const location = useLocation();
   const lenisRef = useRef(null);
+  const initialLocationRef = useRef(true);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -82,15 +81,20 @@ function App() {
     }
   }, [location.pathname]);
 
-  // Track page views with Google Analytics
+  // GTM records the initial page view. Notify it only of subsequent SPA routes
+  // so GA4 is not sent the same initial page view twice.
   useEffect(() => {
-    if (window.gtag) {
-      window.gtag("config", "G-XXXXXXXXXX", {
-        page_path: location.pathname,
-        page_title: document.title,
-      });
+    if (initialLocationRef.current) {
+      initialLocationRef.current = false;
+      return;
     }
-  }, [location]);
+
+    trackEvent("fexkode_route_change", {
+      page_location: window.location.href,
+      page_path: `${location.pathname}${location.search}${location.hash}`,
+      page_title: document.title,
+    });
+  }, [location.hash, location.pathname, location.search]);
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -108,16 +112,7 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify(websiteSchema)}
-        </script>
-      </Helmet>
-
+      <Suspense fallback={<div className="min-h-screen bg-[#050505]" aria-busy="true" />}>
       <Routes>
         {/* Admin Login */}
         <Route
@@ -141,7 +136,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Home />
+              <Home organizationSchema={organizationSchema} websiteSchema={websiteSchema} />
               <Footer />
             </>
           }
@@ -425,6 +420,7 @@ function App() {
           }
         />
       </Routes>
+      </Suspense>
     </>
   );
 }

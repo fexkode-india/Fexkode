@@ -245,9 +245,9 @@ function CloudSecurity() {
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:px-8">
 
             <Reveal direction="left">
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Security by Design
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Security should be part of the architecture.
@@ -325,9 +325,9 @@ function CloudSecurity() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
 
             <Reveal className="max-w-3xl">
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Security Approach
-              </h1>
+              </h2>
 
               <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Protect the environment from architecture to operations.

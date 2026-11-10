@@ -1,7 +1,7 @@
-import { useRef, useState, useEffect } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useRef, useState } from "react";
 import SEO from "../../components/SEO";
 import PageHero from "../../components/PageHero";
+import devopsHeroImage from "../../assets/images/page-heros/devops.png";
 import ScrollReveal from "../../components/ScrollReveal";
 
 const capabilities = [
@@ -84,7 +84,7 @@ function DevOpsAutomation() {
       <SEO
         title="DevOps & Automation | Fexkode"
         description="Fexkode helps engineering teams automate software delivery, infrastructure, CI/CD pipelines, deployment workflows, monitoring, and operational processes."
-        canonical="/solutions/devops"
+        canonical="/solutions/devops-automation"
       />
 
       <main className="min-h-screen pt-20">
@@ -93,7 +93,7 @@ function DevOpsAutomation() {
           eyebrow="DevOps & Automation"
           title="Automate the path from code to production."
           description="Build repeatable delivery processes and automated infrastructure that help engineering teams release software with greater consistency and confidence."
-          image="/src/assets/images/page-heros/devops.png"
+          image={devopsHeroImage}
           buttonText="Discuss Your Requirements"
           buttonLink="/contact"
         />
@@ -103,9 +103,9 @@ function DevOpsAutomation() {
           <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:px-8">
             <div>
               <ScrollReveal>
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   DevOps Engineering
-                </h1>
+                </h2>
               </ScrollReveal>
 
               <ScrollReveal className="delay-100">
@@ -145,9 +145,9 @@ function DevOpsAutomation() {
         <section className="bg-ink py-24 text-white">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <ScrollReveal>
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Capabilities
-              </h1>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal className="delay-100">
@@ -182,9 +182,9 @@ function DevOpsAutomation() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
               <ScrollReveal>
-                <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+                <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                   Our Approach
-                </h1>
+                </h2>
               </ScrollReveal>
 
               <ScrollReveal className="delay-100">
@@ -257,9 +257,9 @@ function DevOpsAutomation() {
         <section className="bg-ink py-24 text-white">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
             <ScrollReveal>
-              <h1 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
+              <h2 className="text-3xl font-semibold uppercase tracking-[0.22em] text-cyan sm:text-4xl">
                 Ready to automate your delivery?
-              </h1>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal className="delay-100">
