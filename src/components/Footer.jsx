@@ -213,19 +213,19 @@ function Footer() {
 
           <Link
             to="/"
-            className="inline-flex items-center gap-3"
+            className="inline-flex items-center gap-2"
           >
 
-            <div className="flex h-10 w-10 items-center justify-center overflow-hidden">
+            <div className="flex h-[27px] w-[27px] items-center justify-center overflow-hidden">
 
               <img
                 src={logo}
                 alt="Fexkode"
-                width="40"
-                height="40"
+                width="27"
+                height="27"
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full scale-[1.65] object-contain"
+                className="h-full w-full scale-[1.9] object-contain"
               />
 
             </div>
@@ -233,7 +233,7 @@ function Footer() {
 
             {/* NAVBAR-STYLE FEXKODE */}
 
-            <FexkodeWordmark className="h-7 w-auto sm:h-8" />
+            <FexkodeWordmark className="h-[19px] w-auto" />
 
           </Link>
 

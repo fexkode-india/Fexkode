@@ -187,7 +187,7 @@ const companyLinks = [
    STYLES
    ========================================================= */
 
-const dropdownWrap = "fixed left-0 right-0 top-20 w-screen";
+const dropdownWrap = "fixed left-0 right-0 top-[60px] w-screen";
 
 const dropdownInner =
   "w-full overflow-hidden border-b border-white/10 bg-black shadow-2xl backdrop-blur-xl";
@@ -287,33 +287,33 @@ function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black">
       {/* ================= DESKTOP HEADER ================= */}
 
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
+      <div className="mx-auto flex h-[70px] max-w-[1200px] items-center justify-between px-5 lg:px-7">
         <Link
           to="/"
           onClick={closeAll}
-          className="flex shrink-0 items-center gap-3"
+          className="flex shrink-0 items-center gap-2"
         >
-          <div className="flex h-11 w-11 items-center justify-center overflow-hidden">
+          <div className="flex h-[27px] w-[27px] items-center justify-center overflow-hidden">
             <img
               src={logo}
               alt="Fexkode"
-              width="44"
-              height="44"
+              width="27"
+              height="27"
               fetchPriority="high"
               decoding="async"
               className="h-full w-full scale-[1.9] object-contain"
             />
           </div>
 
-          <FexkodeWordmark className="h-7 w-auto sm:h-8" />
+          <FexkodeWordmark className="h-[19px] w-auto" />
         </Link>
 
         {/* ================= DESKTOP NAV ================= */}
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           <NavLink
             to="/"
-            className="text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-white"
+            className="text-[13px] font-medium text-slate-300 transition-colors duration-200 hover:text-white"
           >
             Home
           </NavLink>
@@ -332,7 +332,7 @@ function Navbar() {
           >
             <Link
               to="/solutions"
-              className="flex items-center gap-1 text-sm font-medium text-slate-300 transition-colors hover:text-white"
+              className="flex items-center gap-1 text-[13px] font-medium text-slate-300 transition-colors hover:text-white"
             >
               Solutions
               <ChevronDown
@@ -401,7 +401,7 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-slate-300 transition-colors hover:text-white"
+              className="flex items-center gap-1 text-[13px] font-medium text-slate-300 transition-colors hover:text-white"
             >
               Services
               <ChevronDown
@@ -474,7 +474,7 @@ function Navbar() {
             <button
               type="button"
               onClick={() => setIsCompanyOpen(!isCompanyOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-slate-300 transition-colors hover:text-white"
+              className="flex items-center gap-1 text-[13px] font-medium text-slate-300 transition-colors hover:text-white"
             >
               Company
               <ChevronDown
@@ -532,7 +532,7 @@ function Navbar() {
           <Link
             to="/contact"
             onClick={closeAll}
-            className="group flex items-center gap-2 rounded-full bg-electric px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-electric/90"
+            className="group flex h-9 items-center gap-2 rounded-full bg-electric px-[18px] text-[13px] font-semibold text-white transition hover:bg-electric/90"
           >
             Contact
             <ArrowRight
@@ -558,8 +558,8 @@ function Navbar() {
       {/* ================= MOBILE MENU ================= */}
 
       {isOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-black lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-5 py-5">
+        <div className="max-h-[calc(100vh-70px)] overflow-y-auto border-t border-white/10 bg-black lg:hidden">
+          <nav className="mx-auto flex max-w-[1200px] flex-col px-5 py-5">
             <NavLink
               to="/"
               onClick={closeAll}
