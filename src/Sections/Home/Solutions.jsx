@@ -119,7 +119,7 @@ function Solutions() {
 
           {/* LEFT — SOLUTION NAVIGATION */}
           <ScrollReveal className="delay-300">
-            <div className="overflow-hidden rounded-[32px] border border-slate-200/70 bg-white shadow-[0_25px_70px_-15px_rgba(15,23,42,0.15)] hover:shadow-lg transition-shadow duration-300">
+            <div className="overflow-hidden rounded-[32px] border border-slate-200/70 bg-white shadow-[0_25px_70px_-15px_rgba(15,23,42,0.15)] transition-shadow duration-300 hover:shadow-lg">
 
               {solutions.map((item, index) => {
                 const isActive = activeSolution === index;
@@ -136,6 +136,7 @@ function Solutions() {
                         : "bg-white text-slate-500 hover:bg-slate-50/70 hover:text-slate-900"
                     }`}
                   >
+
                     {/* Active left accent */}
                     <span
                       className={`absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-cyan-400 to-cyan-600 transition-all duration-500 ${
@@ -143,29 +144,22 @@ function Solutions() {
                       }`}
                     />
 
-                    {/* Number */}
-                    <span
-                      className={`w-8 shrink-0 text-xs font-semibold tracking-[0.18em] transition-colors duration-300 ${
-                        isActive
-                          ? "text-cyan-600"
-                          : "text-slate-300 group-hover:text-slate-500"
-                      }`}
-                    >
-                      {item.number}
-                    </span>
-
-                    {/* Icon */}
+                    {/* Service Icon */}
                     <span
                       className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border transition-all duration-300 ${
                         isActive
-                          ? "border-cyan-400 bg-cyan-400 text-slate-950 shadow-[0_8px_20px_rgba(6,182,212,0.35)] scale-110"
-                          : "border-slate-200 bg-slate-50 text-slate-400 group-hover:border-slate-300 group-hover:text-slate-700 group-hover:scale-105"
+                          ? "scale-110 border-cyan-400 bg-cyan-400 text-slate-950 shadow-[0_8px_20px_rgba(6,182,212,0.35)]"
+                          : "border-slate-200 bg-slate-50 text-slate-400 group-hover:scale-105 group-hover:border-slate-300 group-hover:text-slate-700"
                       }`}
                     >
-                      <ItemIcon size={18} strokeWidth={1.5} />
+                      <ItemIcon
+                        size={18}
+                        strokeWidth={1.8}
+                        className="transition-all duration-300 group-hover:[stroke-width:2.2]"
+                      />
                     </span>
 
-                    {/* Title */}
+                    {/* Service Title */}
                     <span
                       className={`flex-1 text-base font-medium tracking-tight transition-colors duration-300 sm:text-lg ${
                         isActive
@@ -181,7 +175,7 @@ function Solutions() {
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
                         isActive
                           ? "border-cyan-400/50 text-cyan-600"
-                          : "border-transparent text-slate-300 group-hover:border-slate-200 group-hover:text-slate-600 group-hover:bg-slate-100"
+                          : "border-transparent text-slate-300 group-hover:border-slate-200 group-hover:bg-slate-100 group-hover:text-slate-600"
                       }`}
                     >
                       <ArrowUpRight
@@ -190,60 +184,64 @@ function Solutions() {
                         className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       />
                     </span>
+
                   </a>
                 );
               })}
+
             </div>
           </ScrollReveal>
 
-          {/* RIGHT — FEATURED SOLUTION (whole panel links to the active solution) */}
+          {/* RIGHT — FEATURED SOLUTION */}
           <ScrollReveal className="delay-400 h-full">
             <a
               href={solution.path}
-              className="group relative block min-h-[500px] h-full overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#0b1a2e] via-[#0a1424] to-[#060b14] p-8 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-cyan-400/50 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] hover:-translate-y-1 sm:p-10 lg:p-12"
+              className="group relative block min-h-[500px] h-full overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#0b1a2e] via-[#0a1424] to-[#060b14] p-8 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] sm:p-10 lg:p-12"
             >
 
               {/* Top highlight line */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transition-opacity duration-500 group-hover:opacity-100 opacity-50" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
 
               {/* Decorative circles */}
               <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full border border-cyan/10 transition-transform duration-700 group-hover:scale-110" />
 
-            <div className="pointer-events-none absolute -bottom-32 -right-20 h-96 w-96 rounded-full border border-white/5" />
+              <div className="pointer-events-none absolute -bottom-32 -right-20 h-96 w-96 rounded-full border border-white/5" />
 
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_25%,rgba(34,211,238,0.12),transparent_35%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_25%,rgba(34,211,238,0.12),transparent_35%)]" />
 
-            <div className="relative flex h-full flex-col">
+              <div className="relative flex h-full flex-col">
 
-              {/* Icon */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan/30 bg-cyan-400/5 text-cyan shadow-[0_8px_24px_rgba(6,182,212,0.2)]">
-                <Icon size={24} strokeWidth={1.4} />
-              </div>
+                {/* Icon */}
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan/30 bg-cyan-400/5 text-cyan shadow-[0_8px_24px_rgba(6,182,212,0.2)]">
+                  <Icon size={24} strokeWidth={1.4} />
+                </div>
 
-              {/* Label */}
-              <p className="mt-10 text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
-                Solution {solution.number}
-              </p>
-
-              {/* Title */}
-              <h3 className="mt-5 max-w-2xl text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl">
-                {solution.title}
-              </h3>
-
-              {/* Short description */}
-              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
-                {solution.shortDesc}
-              </p>
-
-              {/* Full explanation */}
-              <div className="mt-8 max-w-2xl border-t border-white/10 pt-7">
-                <p className="text-sm leading-7 text-slate-500 sm:text-base">
-                  {solution.fullExplanation}
+                {/* Label */}
+                <p className="mt-10 text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
+                  Solution {solution.number}
                 </p>
+
+                {/* Title */}
+                <h3 className="mt-5 max-w-2xl text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  {solution.title}
+                </h3>
+
+                {/* Short description */}
+                <p className="mt-6 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
+                  {solution.shortDesc}
+                </p>
+
+                {/* Full explanation */}
+                <div className="mt-8 max-w-2xl border-t border-white/10 pt-7">
+                  <p className="text-sm leading-7 text-slate-500 sm:text-base">
+                    {solution.fullExplanation}
+                  </p>
+                </div>
+
               </div>
-            </div>
-          </a>
+            </a>
           </ScrollReveal>
+
         </div>
       </div>
     </section>
